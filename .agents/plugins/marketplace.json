@@ -1,0 +1,20 @@
+{
+  "name": "markinfo-oa",
+  "interface": {
+    "displayName": "Markinfo OA"
+  },
+  "plugins": [
+    {
+      "name": "oa",
+      "source": {
+        "source": "local",
+        "path": "./plugins/oa"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

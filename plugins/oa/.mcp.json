@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "oa": {
+      "type": "http",
+      "url": "https://oa.sapper-ai.com/mcp"
+    }
+  }
+}
