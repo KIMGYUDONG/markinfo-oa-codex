@@ -11,4 +11,5 @@ description: 상표 의견제출통지서 PDF를 받아 대화로 분석 보고�
 2. 실무자에게 묻는 것은 반드시 Codex의 질문 도구(`request_user_input`, 그 도구가 없을 때만 `request_user_input_async`)로만 묻는다. 본문 답변으로 질문하지 않는다.
 3. 응답의 `guide_version`을 기억해 두었다가, 피드백을 보낼 때 `repro.guide_version`에 그대로 넣는다.
 4. 절차에서 말하는 `<이 스킬 폴더>`는 이 `SKILL.md`가 있는 폴더다. 통지서 PDF 글자는 이 폴더의 `scripts/notice_text.py`로 로컬에서 뽑는다(네트워크를 쓰지 않는다).
-5. `oa` 도구가 보이지 않거나 `get_guide`가 `access_denied`를 주면, 실무자에게 터미널에서 `codex mcp login oa`를 실행해 허용 목록에 있는 Google 계정으로 로그인해 달라고 알리고 멈춘다. 절차를 짐작해서 대신 쓰지 않는다.
+5. 통지서 PDF는 서버에 올리지 않는다. 어떤 도구가 `not_configured`를 주어도 실무자에게 서버 설정을 묻지 않고 절차대로 계속한다.
+6. `oa` 도구가 보이지 않거나 `get_guide`가 `access_denied`를 주면, 실무자에게 터미널에서 `codex mcp login oa`를 실행해 허용 목록에 있는 Google 계정으로 로그인해 달라고 알리고 멈춘다. 절차를 짐작해서 대신 쓰지 않는다.
