@@ -1,6 +1,6 @@
 {
   "name": "oa",
-  "version": "0.3.3",
+  "version": "0.4.0",
   "description": "마크인포 상표 OA(의견제출통지 대응) 업무를 코덱스에서 하는 OA SaaS 플러그인. 첫 스킬 opinion은 상표 의견제출통지서로 분석 보고서, 대응 전략, 의견서 초안, 근거 목록, 지정상품 삭제 보정서 초안을 대화로 작성한다",
   "author": {
     "name": "KIMGYUDONG"
