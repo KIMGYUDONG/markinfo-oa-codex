@@ -3,6 +3,18 @@
     "oa": {
       "type": "http",
       "url": "https://oa.sapper-ai.com/mcp"
+    },
+    "oa_capture": {
+      "command": "python3",
+      "args": [
+        "./mcp/oa_capture.py"
+      ],
+      "cwd": "./",
+      "tools": {
+        "naver_capture": {
+          "approval_mode": "approve"
+        }
+      }
     }
   }
 }
