@@ -8,7 +8,7 @@ description: 상표 의견제출통지서 PDF를 받아 대화로 분석 보고�
 이 스킬은 OA MCP 서버(`oa`)가 있어야 동작한다. 작성 절차와 참고 문서는 로그인한 사용자에게만 서버가 준다.
 
 1. 먼저 `get_guide(skill="opinion")`를 부르고, 받은 절차를 처음부터 끝까지 그대로 따른다. 절차가 참고 문서를 읽으라고 하면 그때 `get_guide(topic="...")`로 받는다.
-2. 실무자에게 묻는 것은 반드시 Codex의 질문 도구(`request_user_input`, 그 도구가 없을 때만 `request_user_input_async`)로만 묻는다. 본문 답변으로 질문하지 않는다.
+2. 실무자에게 묻는 것은 현재 모드에서 호출할 수 있는 Codex 질문 도구(`request_user_input` 또는 `request_user_input_async`)로만 묻고, 그 도구의 실제 스키마를 따른다. 도구가 보여도 현재 모드에서 쓸 수 없으면 선택하지 않는다. 본문 답변으로 질문하지 않는다.
 3. 응답의 `guide_version`을 기억해 두었다가, 피드백을 보낼 때 `repro.guide_version`에 그대로 넣는다.
 4. 절차에서 말하는 `<이 스킬 폴더>`는 이 `SKILL.md`가 있는 폴더다. 통지서 PDF 글자는 이 폴더의 `scripts/notice_text.py`로, 통지서 "상표견본이미지" 표의 본원과 인용 견본 그림은 `scripts/notice_specimens.py`로 로컬에서 뽑는다(둘 다 네트워크를 쓰지 않는다).
 5. 네이버 검색 화면 증거는 이 플러그인의 로컬 도구 `oa_capture`의 `naver_capture`(`application_number`, `query`, `out_dir`=<작업 폴더 절대 경로>/web-captures, `channel`)로 실무자 PC에서 캡처한다(사건당 최대 6회, 3초 간격, 검색어만 네이버로 감). 이 도구는 코덱스 명령 샌드박스 밖에서 돌므로, 같은 일을 하는 `scripts/naver_capture.py`를 셸 명령으로 실행하지 않는다(샌드박스 안에서는 네트워크가 막히고 Chrome이 시작하지 못한다). 돌려받은 기록은 서버 도구 register_capture에 그대로 넘겨 조사 카드로 받는다.
