@@ -14,5 +14,5 @@ description: 상표 의견제출통지서 PDF를 받아 대화로 분석 보고�
 5. 네이버 검색 화면 증거는 이 플러그인의 로컬 도구 `oa_capture`의 `naver_capture`(`application_number`, `query`, `out_dir`=<작업 폴더 절대 경로>/web-captures, `channel`)로 실무자 PC에서 캡처한다(사건당 최대 6회, 3초 간격, 검색어만 네이버로 감). 이 도구는 코덱스 명령 샌드박스 밖에서 돌므로, 같은 일을 하는 `scripts/naver_capture.py`를 셸 명령으로 실행하지 않는다(샌드박스 안에서는 네트워크가 막히고 Chrome이 시작하지 못한다). 돌려받은 기록은 서버 도구 register_capture에 그대로 넘겨 조사 카드로 받는다.
 6. 통지서 PDF는 서버에 올리지 않는다. 어떤 도구가 `not_configured`를 주어도 실무자에게 서버 설정을 묻지 않고 절차대로 계속한다.
 7. 의견서 본문은 서버 절차에서 검사를 통과한 변론 계획대로만 쓰고, 불리한 해석과 위험 검토는 `report.md`에만 남긴다.
-8. `opinion.md`는 서버 도구 finalize_opinion이 발급한 `markdown`만 그대로 쓰고, 옆에 발급 기록(`sidecar`)을 함께 쓴다. 발급받지 못하면 `opinion.md`를 쓰지 않고 `report.md`에 남은 항목을 적어 알린다.
+8. `opinion.md`는 서버 도구 finalize_opinion이 발급한 `markdown`만 그대로 쓰고, 옆에 발급 기록(`sidecar`)을 함께 쓴다. 서버의 `submission_ready`를 그대로 전하고 false인 초안을 제출 가능하다고 말하지 않는다. 발급받지 못하면 `opinion.md`를 쓰지 않고 `report.md`에 남은 항목을 적어 알린다.
 9. `oa` 도구가 보이지 않거나 `get_guide`가 `access_denied`를 주면, 실무자에게 터미널에서 `codex mcp login oa`를 실행해 허용 목록에 있는 Google 계정으로 로그인해 달라고 알리고 멈춘다. 절차를 짐작해서 대신 쓰지 않는다.
